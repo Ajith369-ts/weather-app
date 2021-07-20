@@ -1,0 +1,196 @@
+
+/* font-family: 'Montserrat', sans-serif;
+font-family: 'Noto Sans JP', sans-serif; */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align: center;
+    padding: 3%;
+    font-family: 'Noto Sans JP', sans-serif;
+}
+
+h1, h2, h3, h4 {
+    font-family: 'Montserrat', sans-serif;
+}
+
+div {
+    color: #fff;
+}
+
+.temperature {
+    font-size: 6rem;
+    font-weight: 600;
+    margin-bottom: 0;
+}
+
+.countryName {
+    font-size: 20px;
+    font-weight: 400;
+    margin-left: 10px;
+}
+
+.location {
+    padding: 2%;
+}
+
+.windspeed, .tempicon {
+    padding-right: 5%;
+}
+
+.humidity {
+    fill: #fff;
+    max-width: 8%;
+}
+
+.climate {
+    margin-top: 20px;
+    font-size: 25px;
+}
+
+.climate span {
+    font-size: 18px;
+}
+
+.property {
+    margin-top: 20px;
+}
+
+.property p {
+    font-weight: 700;
+}
+
+.flexbox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.week {
+    margin-top: 20px;
+    padding: 2%;
+}
+
+.box {
+    width: 180px;
+    height: 208px;
+    margin: 0 4%;
+    border-radius: 10px;
+}
+
+.minmax {
+    padding-top: 15px;
+}
+
+.topbox {
+    width: 700px;
+}
+
+.column {
+    margin: auto;
+}
+
+.day {
+    margin-top: 10px;
+}
+
+.icon {
+    width: 60%;
+}
+
+.icon1 {
+    max-width: 34%;
+}
+
+.box-temp {
+    margin-top: 10px;
+}
+
+input[type="text"]{
+    text-align: center;
+    margin-top: 180px;
+    height: 40px;
+    background-color: rgb(255, 255, 255);
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border: transparent;
+    border-radius: 20px;
+    font-size: 20px;
+    width: 310px;
+  }
+  
+::placeholder {
+    color: rgb(148, 148, 148, 0.7);
+    font-size: 18px;
+    text-align: center;
+}
+
+.button {
+    margin-left: 40px;
+    vertical-align: baseline;
+}
+
+@media only screen and (max-width: 600px) {
+
+    .icon {
+        width: 50%;
+    }
+
+    body {
+        padding: 10% 4% 6%;
+    }
+
+    .temperature {
+        font-size: 4.2rem;
+    }
+
+    .property p, .box p {
+        font-weight: 400;
+    }
+
+    .topbox {
+        width: 100%;
+    }
+
+    .property {
+        margin-top: 1rem;
+    }
+
+    .flexbox {
+        display: block;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .box {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        height: 90px;
+        margin: 0.6rem 0;
+        padding: 0 8%;
+        border-radius: 10px;
+    }
+
+    .icon1 {
+        max-width: 80%;
+        padding-top: 10px;
+    }
+
+    .extras {
+        margin-left: 10px;
+    }
+
+    .humidity {
+        max-width: 16%;
+    }
+
+}
