@@ -193,4 +193,8 @@ input[type="text"]{
         max-width: 16%;
     }
 
+    .button {
+        margin: 20px auto;
+    }
+
 }
