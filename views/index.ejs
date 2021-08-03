@@ -9,22 +9,22 @@
             <div class="container topbox">
                 <div class="row">
                     <div class="col-12 col-sm-6 column">
-                        <img class="icon" src="<%= iconId %>"  alt="weather icon">
-                        <p class="climate"><%= climate %>, <span><%= discription %></span></p>
+                        <img class="icon" src="./images/weather icons/<%= weatherData[0].weather[0].icon %>.svg"  alt="weather icon">
+                        <p class="climate"><%= weatherData[0].weather[0].main %>, <span><%= weatherData[0].weather[0].description %></span></p>
                     </div>
                     <div class="col-12 col-sm-6">
-                        <p class="temperature"><%= temp1 %>°c</p>
-                        <p class="minmax"><i class="fas fa-temperature-low tempicon"></i><%= mintemp %>°c - <%= maxtemp %>°c</p>
+                        <p class="temperature"><%= weatherData[0].main.temp %>°c</p>
+                        <p class="minmax"><i class="fas fa-temperature-low tempicon"></i><%= weatherData[0].main.temp_min %>°c - <%= weatherData[0].main.temp_max %>°c</p>
                     </div>
                 </div>
             </div>
             <div class="container topbox">
                 <div class="property row">
                     <div class="col">
-                        <p><i class='fas fa-wind windspeed'></i>wind speed <span class="extras"><%= windSpeed %> m/s</span></p>
+                        <p><i class='fas fa-wind windspeed'></i>wind speed <span class="extras"><%= weatherData[0].wind.speed %> m/s</span></p>
                     </div>
                     <div class="col">
-                        <p><img class="humidity" src="./images/weather icons/wi-humidity.svg" alt="">Humidity  <span class="extras"><%= humidity %> %</span></p>
+                        <p><img class="humidity" src="./images/weather icons/wi-humidity.svg" alt="">Humidity  <span class="extras"><%= weatherData[0].main.humidity %> %</span></p>
                     </div>
                 </div>
             </div>
@@ -32,46 +32,21 @@
         <div>
             <div class="week">
                 <div class="flexbox">
-                    <div class="box">
-                        <div>
-                            <h4 class="day"><%= day1 %></h4>
-                            <p><%= time1 %> </p>
+                    <% for( let i = 3; i < 16; i += 4) { %>
+                    
+                        <div class="box">
+                            <div>
+                                <h4 class="day"><%= new Date(weatherData[i].dt_txt).toDateString().split(' ')[0] %></h4>
+                                <p><%= new Date(weatherData[i].dt * 1000).toLocaleTimeString("en-US").replace(":00", "") %> </p>
+                            </div>
+                            <div>
+                                <img class="icon1" src="./images/weather icons/<%= weatherData[i].weather[0].icon %>.svg"  alt="weather icon">
+                                <p class="box-temp"><%= weatherData[i].main.temp %> °c</p>
+                            </div>
                         </div>
-                        <div>
-                            <img class="icon1" src="<%= icon1 %>"  alt="weather icon">
-                            <p class="box-temp"><%= temp2 %> °c</p>
-                        </div>
-                    </div>
-                    <div class="box">
-                        <div>
-                            <h4 class="day"><%= day2 %></h4>
-                            <p><%= time2 %> </p>
-                        </div>
-                        <div>
-                            <img class="icon1" src="<%= icon2 %>"  alt="weather icon">
-                            <p class="box-temp"><%= temp3 %> °c</p>
-                        </div>
-                    </div>
-                    <div class="box">
-                        <div>
-                            <h4 class="day"><%= day3 %></h4>
-                            <p><%= time3 %> </p>
-                        </div>
-                        <div>
-                            <img class="icon1" src="<%= icon3 %>"  alt="weather icon">
-                            <p class="box-temp"><%= temp4 %> °c</p>
-                        </div>
-                    </div>
-                    <div class="box">
-                        <div>
-                            <h4 class="day"><%= day4 %></h4>
-                            <p><%= time4 %> </p>
-                        </div>
-                        <div>
-                            <img class="icon1" src="<%= icon4 %>"  alt="weather icon">
-                            <p class="box-temp"><%= temp5 %> °c</p>
-                        </div>
-                    </div>
+
+                    <% } %>
+
                 </div>
             </div>
         </div>
