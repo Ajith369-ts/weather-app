@@ -14,7 +14,9 @@ app.set("view engine", "ejs");
 
 app.get("/", (req, res) => {
 
-    res.render("search");
+    res.render("search", {
+        errMsg: ""
+    });
 
 });
 
@@ -27,22 +29,34 @@ app.post("/", (req, res) => {
         
         response.on("data", (d) => {
 
-            const weatherData = JSON.parse(d);
-            const fullName = new Intl.DisplayNames(['en'], { type: 'region' });
-            const country = fullName.of(weatherData.city.country);
-            // const iconurl = "./images/weather icons/"+iconId+".svg";
-            // const icon1 = "./images/weather icons/"+weatherData.list[3].weather[0].icon+".svg";
+            try {
+                const weatherData = JSON.parse(d);
+                const fullName = new Intl.DisplayNames(['en'], { type: 'region' });
+                const country = fullName.of(weatherData.city.country);
+                // const iconurl = "./images/weather icons/"+iconId+".svg";
+                // const icon1 = "./images/weather icons/"+weatherData.list[3].weather[0].icon+".svg";
 
-            res.render("index", {
-                date: date(),
-                weatherData: weatherData.list,
-                city: weatherData.city.name,
-                country: country
-        
-            });
+                res.render("index", {
+                    date: date(),
+                    weatherData: weatherData.list,
+                    city: weatherData.city.name,
+                    country: country
+            
+                });
+            }
+            catch(err){
+                const errMsg = "Enter a valid city name";
+                return res.render("search", {
+                    errMsg: errMsg
+                });
+            }
         })
     });
 
+});
+
+app.use((req, res, next) => {
+    res.status(404).render("error");
 });
 
 let port = process.env.PORT;

@@ -137,6 +137,16 @@ input[type="text"]{
     vertical-align: baseline;
 }
 
+.error {
+    margin: 10px;
+    margin-left: -60px;
+}
+
+.errMsg {
+    color: red;
+    font-size: 14px;
+}
+
 @media only screen and (max-width: 600px) {
 
     .icon {
@@ -195,6 +205,15 @@ input[type="text"]{
 
     .button {
         margin: 20px auto;
+    }
+
+    .error {
+            margin: 0;
+    }
+
+    .errMsg {
+        color: red;
+        font-size: 14px;
     }
 
 }
